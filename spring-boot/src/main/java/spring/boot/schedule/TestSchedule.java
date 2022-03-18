@@ -1,4 +1,4 @@
-package imooc.coupon.schedule;
+package spring.boot.schedule;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.annotation.Scheduled;

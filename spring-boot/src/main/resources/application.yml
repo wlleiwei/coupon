@@ -1,0 +1,21 @@
+server:
+  port: 8000
+  servlet:
+    context-path: /imooc
+# actuator监控，默认打开两个端点：health（健康检测）和 info（应用信息）
+management:
+  endpoint:
+    shutdown:
+      enabled: true # 最特殊的监控端点，可通过url来关闭应用程序，默认为false
+  endpoints:
+    web:
+      exposure:
+        include: "*" # 打开所有的监控端点
+# 自定义info返回信息 /imooc/actuator/info
+info:
+  app:
+    name: imooc-coupon
+    groupId: imooc.coupon
+    artifactId: imooc-coupon
+    version: 1.0-SNAPSHOT
+    author: weilei

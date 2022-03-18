@@ -1,17 +1,15 @@
-package imooc.coupon.async;
+package spring.boot;
 
 
+import spring.boot.async.AsyncService;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.scheduling.annotation.Async;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
-import java.util.concurrent.TimeUnit;
 
 /**
  * @ClassName AsyncServiceTest.java
@@ -35,8 +33,8 @@ public class AsyncServiceTest {
     @Test
     public void testAsyncProcessWithReturn() throws Exception{
         Future<Integer> integerFuture = asyncService.asyncProcessWithReturn();
-        //log.info("testAsyncProcessWithReturn->{}",integerFuture.get());
-        log.info("testAsyncProcessWithReturn->{}",integerFuture.get(1, TimeUnit.SECONDS));
+        log.info("testAsyncProcessWithReturn->{}",integerFuture.get());
+        //log.info("testAsyncProcessWithReturn->{}",integerFuture.get(1, TimeUnit.SECONDS));
     }
 
 }

@@ -1,4 +1,4 @@
-package imooc.coupon.async;
+package spring.boot.async;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.annotation.Async;
