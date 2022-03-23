@@ -15,4 +15,4 @@ eureka:
     register-with-eureka: false
     #设置Eureka Server地址，服务查询和服务注册需要此地址
     service-url:
-      defaulZone: http://${eureka.instance.hostname}/${server.port}/eureka
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/

@@ -1,6 +1,7 @@
 #idea文件
 .idea
-.iml
+*.iml
+**/*.iml
 
 #工程文件
 target/

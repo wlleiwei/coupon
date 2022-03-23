@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: coupon-gateway
+
+#服务器配置
+server:
+  port: 8001
+
+#eureka注册服务配置
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8000/eureka/
+
