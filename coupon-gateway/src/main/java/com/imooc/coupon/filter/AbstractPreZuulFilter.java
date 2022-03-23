@@ -1,14 +1,13 @@
-package com.imooc.coupon.filter.abstractFilter;
+package com.imooc.coupon.filter;
 
 import org.springframework.cloud.netflix.zuul.filters.support.FilterConstants;
 
 /**
- * <h1>post 抽象后置过滤器</h1>
+ * <h1>pre 抽象前置过滤器</h1>
  *
  * @author 魏磊
  */
-public abstract class AbstractPostFilter extends AbstractZuulFilter {
-
+public abstract class AbstractPreZuulFilter extends AbstractZuulFilter {
     /**
      * to classify a filter by type. Standard types in Zuul are "pre" for pre-routing filtering,
      * "route" for routing to an origin, "post" for post-routing filters, "error" for error handling.
@@ -19,7 +18,7 @@ public abstract class AbstractPostFilter extends AbstractZuulFilter {
      */
     @Override
     public String filterType() {
-        return FilterConstants.POST_TYPE;
+        return FilterConstants.PRE_TYPE;
     }
 
     /**

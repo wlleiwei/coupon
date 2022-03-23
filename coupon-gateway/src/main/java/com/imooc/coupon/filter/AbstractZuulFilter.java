@@ -1,4 +1,4 @@
-package com.imooc.coupon.filter.abstractFilter;
+package com.imooc.coupon.filter;
 
 import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
