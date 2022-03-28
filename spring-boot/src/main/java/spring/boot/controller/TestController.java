@@ -26,11 +26,12 @@ public class TestController {
     /**
      * <h2>测试json转化</h2>
      * url:127.0.0.1:8000/imooc/springboot/jackson
+     *
      * @return
      * @throws JsonProcessingException
      */
     @GetMapping("/jackson")
-    public JsonEntity testJackson() throws JsonProcessingException {
+    public JsonEntity testJackson() throws Exception {
         JsonEntity jsonEntity = JsonEntity.builder()
                 .name("张三").address("万达广场").birthday(new Date()).build();
         String json = objectMapper.writeValueAsString(jsonEntity);
@@ -39,4 +40,5 @@ public class TestController {
         JsonEntity entity = objectMapper.readValue(json, JsonEntity.class);
         return entity;
     }
+
 }

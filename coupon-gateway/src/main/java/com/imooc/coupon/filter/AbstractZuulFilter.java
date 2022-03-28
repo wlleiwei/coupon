@@ -15,7 +15,7 @@ public abstract class AbstractZuulFilter extends ZuulFilter {
     /**
      * 用于过滤器之间传递消息，数据保存在每个请求的ThreadLocal中
      */
-    RequestContext requestContext;
+    RequestContext context;
     /**
      * 用于判断当前过滤器是否执行
      */
@@ -40,7 +40,7 @@ public abstract class AbstractZuulFilter extends ZuulFilter {
      */
     @Override
     public Object run() throws ZuulException {
-        requestContext = RequestContext.getCurrentContext();
+        context = RequestContext.getCurrentContext();
         return execute();
     }
 
@@ -58,21 +58,23 @@ public abstract class AbstractZuulFilter extends ZuulFilter {
      * @param code 状态码
      * @param msg  错误信息
      */
-    void fail(int code, String msg) {
+    Object fail(int code, String msg) {
         //后续的过滤器不执行
-        requestContext.set(NEXT, false);
+        context.set(NEXT, false);
         //直接返回
-        requestContext.setSendZuulResponse(false);
-        requestContext.getResponse().setContentType("text/html:charset=UTF-8");
-        requestContext.setResponseStatusCode(code);
-        requestContext.setResponseBody(String.format("{\"result\":\"%s\"}", msg));
+        context.setSendZuulResponse(false);
+        context.getResponse().setContentType("text/html:charset=UTF-8");
+        context.setResponseStatusCode(code);
+        context.setResponseBody(String.format("{\"result\":\"%s\"}", msg));
+        return null;
     }
 
 
     /**
      * 执行成功设置NEXT=TRUE，执行后续的过滤器
      */
-    void success() {
-        requestContext.set(NEXT, true);
+    Object success() {
+        context.set(NEXT, true);
+        return null;
     }
 }
